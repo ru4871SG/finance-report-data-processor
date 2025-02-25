@@ -3,12 +3,6 @@
 # List of brands
 BRANDS=("ABC" "DEF" "GHI" "JKL" "MNO")
 
-# Function to get database name for a brand
-get_db_name() {
-    local brand=$1
-    echo "crm_${brand,,}"  # ${brand,,} converts to lowercase
-}
-
 # List of tables to process
 TABLES=(
     "processing_first_item_cost"
@@ -28,6 +22,12 @@ TABLES=(
     "sylius_channel_pricing"
     "sylius_channel_pricing_item"
 )
+
+# Function to get database name for a brand
+get_db_name() {
+    local brand=$1
+    echo "crm_${brand,,}"  # ${brand,,} converts to lowercase
+}
 
 # Function to process a specific brand
 process_brand() {
